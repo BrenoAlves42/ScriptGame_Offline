@@ -413,6 +413,7 @@ input[type="radio"].velRadio:checked {
 
 .hidden {
   display: none;
+  
 }
 #blocklyDiv{
   position: absolute;
