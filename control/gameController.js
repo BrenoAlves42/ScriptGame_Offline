@@ -1863,6 +1863,11 @@ function avancarMapa05(mapLogic){
             hpRestante-=2;
  
         }
+
+        if(checkCol(colisoes.p3f5)){
+            resetMaps();
+            hpRestante--;
+        }
         
         if(posAtualFila < mapLogic.linha_comandos.length){      
             
@@ -1872,7 +1877,7 @@ function avancarMapa05(mapLogic){
                     avancarMapalDirecao(mapLogic, mapLogic.dir);   
                     break;
                 case "3":
-        
+
                     vxr = 0;
                     vxl = 0;
                     vy = 0;
@@ -2448,6 +2453,8 @@ function avancarMapa12(mapLogic){
                     case "3":
                         
                         if(checkCol(colisoes.o1f12)){
+
+                            console.log(mapLogic.cores_encontradas);
                       
                             if(mapLogic.cores_encontradas[0] == "a"){
                             
@@ -2493,6 +2500,7 @@ function avancarMapa12(mapLogic){
                     case "v":
                     case "a":
                         
+                        
                         if(mapLogic.quantPassosY == 4){
                             posAtualFila+=1;
                             
@@ -2504,8 +2512,8 @@ function avancarMapa12(mapLogic){
 
                         let posFila = posAtualFila;
                         posFila+=1;
-
-                        if(mapLogic.linha_comandos[posFila+=1] == "6"){
+                        
+                        if(mapLogic.linha_comandos[posFila] == "6"){
                             if(mapLogic.quantPassosX == 1){
                                 posAtualFila+=1;
                             }
@@ -2726,6 +2734,7 @@ function avancarMapa13(mapLogic){
 } 
 
 
+
 function animarEspinho(){
     if(espinho.frameAtualEspinho == 0){
         espinho.frameAtualEspinho = 1;
@@ -2867,10 +2876,54 @@ function animar(){
         espinho.draw(elements.ctx);
     }
   
-    if(vxl != 0 || vxr != 0 || vy != 0){
+    if(vxl != 0 || vxr != 0 || vy != 0){ 
         player.update();
     }else{
-        player.direcao = 'bx';
+        switch (mapaAtual) {
+            case 1:
+                player.direcao = 'dir';
+            break;
+            case 2:
+                player.direcao = 'dir';
+            break;
+            case 3:
+                player.direcao = 'cim';
+            break;
+            case 4:
+                player.direcao = 'dir';
+            break;
+            case 5:
+                player.direcao = 'dir';
+            break;
+            case 6:
+                player.direcao = 'esq';
+            break;
+            case 7:
+                player.direcao = 'bx';
+            break;
+            case 8:
+                player.direcao = 'bx';
+            break;
+            case 9:
+                player.direcao = 'esq';
+            break;
+            case 10:
+                player.direcao = 'esq';
+            break;
+            case 11:
+                player.direcao = 'bx';
+            break;
+            case 12:
+                player.direcao = 'bx';
+            break;
+            case 13:
+                player.direcao = 'dir';
+            break;
+        
+            default:
+                break;
+        }
+        
         player.frameAtualPlayer = 0;
     }
 
