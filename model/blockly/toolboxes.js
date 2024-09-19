@@ -186,7 +186,7 @@ export class Toolboxes{
                 "contents": [
                         {
                             "kind": "block",
-                            "type": "avancarSelect",
+                            "type": "avancar2",
                         },
                         {
                             "kind": "block",

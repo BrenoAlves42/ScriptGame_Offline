@@ -8,6 +8,10 @@ export class gameDocLoader{
         this.modal  = document.getElementById('modal');
         this.modalArea  = document.getElementById("modalContent");
         this.modalContent = document.getElementById("modalSpan");
+        this.modalMV  = document.getElementById('modalMV');
+        this.modalAreaMV   = document.getElementById("modalContentMV");
+        this.modalContentMV  = document.getElementById("modalSpanMV");
+        this.modalButtonConfirm = document.getElementById("modalButtonConfirm"); 
         this.main = document.getElementById('main');
         this.mostrarNotas = document.getElementById('imgNota');
         this.gameScreen = document.getElementById('fullGameDiv');

@@ -376,9 +376,9 @@ function checkVida(){
                 elements.coracao1.classList.remove('hidden'); 
                 
                 if(podeMorrer == true){
-                    
+                    podeMorrer = false;
                     updateSaveMorreu();
-
+                    
                 }
             }
             
@@ -548,41 +548,41 @@ elements.modalArea.addEventListener('click', function() {
 
 elements.buttonNextTut.addEventListener('click', function() {
 
-   elements.buttonPrevTut.classList.remove('disabled-button');
-   elements.buttonPrevTut.disabled = false;
-   elements.buttonNextTut.classList.add('disabled-button');
-   elements.buttonNextTut.disabled = true;
+   elements.buttonPrevTut.classList.remove('hidden');
+   elements.buttonNextTut.classList.add('hidden');
+
+   elements.buttonCancelTut.textContent = "Fechar";
+
 
    elements.tutorial_fundo1.classList.add('hidden');
    elements.tutorial_fundo1_anim.classList.add('hidden');
    elements.tutorial_fundo2.classList.remove('hidden');
    elements.tutorial_fundo2_anim1.classList.remove('hidden');
    elements.tutorial_fundo2_anim2.classList.remove('hidden');
+
+   
     
 });
 
 elements.buttonPrevTut.addEventListener('click', function() {
 
-    elements.buttonPrevTut.classList.add('disabled-button');
-    elements.buttonPrevTut.disabled = true;
-    elements.buttonNextTut.classList.remove('disabled-button');
-    elements.buttonNextTut.disabled = false;
- 
+    elements.buttonNextTut.classList.remove('hidden');
+    elements.buttonPrevTut.classList.add('hidden');
+
     elements.tutorial_fundo2.classList.add('hidden');
     elements.tutorial_fundo2_anim1.classList.add('hidden');
     elements.tutorial_fundo2_anim2.classList.add('hidden');
     elements.tutorial_fundo1.classList.remove('hidden');
     elements.tutorial_fundo1_anim.classList.remove('hidden');
-    
-     
+
  });
 
 elements.buttonCancelTut.addEventListener('click', function() {
 
-elements.buttonPrevTut.classList.add('disabled-button');
-elements.buttonPrevTut.disabled = true;
-elements.buttonNextTut.classList.remove('disabled-button');
-elements.buttonNextTut.disabled = false;
+elements.buttonCancelTut.textContent = "Pular";
+
+elements.buttonNextTut.classList.remove('hiden');
+elements.buttonPrevTut.classList.add('hidden');
 
 elements.tutorial_fundo2.classList.add('hidden');
 elements.tutorial_fundo2_anim1.classList.add('hidden');
@@ -590,9 +590,10 @@ elements.tutorial_fundo2_anim2.classList.add('hidden');
 elements.tutorial_fundo1.classList.remove('hidden');
 elements.tutorial_fundo1_anim.classList.remove('hidden');
 
+
+
 elements.tutorial.classList.add('hidden');
 
-    
 });
 
 elements.cancelCompileButton.addEventListener('click', function() {
@@ -620,6 +621,7 @@ elements.execButton.addEventListener('click', function() {
     
   
 });
+
 elements.stepButton.addEventListener('click', function() {
 
     andar();
@@ -672,6 +674,10 @@ elements.continueButton.addEventListener('click', function() {
 
    elements.continueButton.disabled = true;
 });
+
+elements.modalButtonConfirm.addEventListener('click', function() {
+    location.reload();
+})
 
 function andar(){
     espinhoAnim = false;
@@ -867,8 +873,6 @@ elements.bf1.addEventListener('click', function() {
     posAtualFila = 0;
     toggleElements();
     elements.tutorial.classList.remove('hidden');
-    elements.buttonPrevTut.classList.add('disabled-button');
-    elements.buttonPrevTut.disable = true;
 
 });
 
@@ -1386,11 +1390,22 @@ function mudarMapaDados(){
             
             break;
         case 13:
-            
-                toggleElements();
+
                 resetMaps();
+                enableCompile();
+                mapaAtual = 13;
+                attplayerPos = false;
+                vxr = 0;
+                vxl = 0;
+                vy = 0;
+                andando = false;
+                posAtualFila = 0;
+                terminal.clear();
                 update = false;
+                
                 atualizarSave();
+
+                checkVenceu();
                
                
             
@@ -2449,7 +2464,8 @@ function avancarMapa12(mapLogic){
             switch (mapLogic.linha_comandos[posAtualFila]) {  
                 case "1":
                     esperou = false;
-                    avancarMapalDirecao(mapLogic, mapLogic.dir); break;   
+                    avancarMapalDirecao(mapLogic, mapLogic.dir);
+                    break;   
                     case "3":
                         
                         if(checkCol(colisoes.o1f12)){
@@ -2854,6 +2870,7 @@ function animar(){
         
     checkVida();
     checkHp();
+    checkMorreu();
 
     player.x += vxl;
     player.x += vxr;
@@ -3116,10 +3133,28 @@ function updateSaveMorreu(){
 
     
     morreu = true;
-    location.reload();
+   
     
     
 }
+
+function checkMorreu(){
+    if(morreu == true){
+        morreu = false;
+        elements.modalContentMV.textContent = "Você morreu! retornando à seleção de salas...";
+        elements.modalMV.classList.toggle('hidden');
+        
+    }
+}
+
+function checkVenceu(){
+   
+        elements.modalContentMV.textContent = "Parabéns! Você chegou ao fim da versão Alpha do ScriptGame! Obrigado pelo seu tempo e dedicação.";
+        elements.modalMV.classList.toggle('hidden');
+        
+    
+}
+
 
 window.addEventListener('load', function(){
 

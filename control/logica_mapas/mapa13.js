@@ -24,16 +24,27 @@ export class mapa13{
         this.linha_comandos = this.linha_comandos.filter(function(element) {
             return element !== ' ';
         });
-
-        let uniqueCores = new Set();
-
-        for (let i = 0; i < this.linha_comandos.length; i++) {
-            if ((this.linha_comandos[i] === 'a' || this.linha_comandos[i] === 'b') && !uniqueCores.has(this.linha_comandos[i])) {
-                uniqueCores.add(this.linha_comandos[i]);
-                this.cores_encontradas.push(this.linha_comandos[i]);
-            }
-        }
+        this.cores_encontradas = this.linha_comandos.filter(item => isNaN(item));
         
+
+        const cleanedArray = [];
+
+            // Process each item in the cores_encontradas array
+            for (let i = 0; i < this.cores_encontradas.length; i++) {
+                // Remove occurrences of the letter "e"
+                let cleanedItem = this.cores_encontradas[i].replace(/e/g, '');
+                
+                // Remove any blank spaces
+                cleanedItem = cleanedItem.replace(/\s+/g, '');
+                
+                // Add to the new array if it's not an empty string
+                if (cleanedItem !== '') {
+                    cleanedArray.push(cleanedItem);
+                }
+            }
+
+            // Assign the cleaned array to cores_encontradas
+            this.cores_encontradas = cleanedArray;
         for (let i = 0; i < this.linha_comandos.length - 1; i++) {
             if (this.linha_comandos[i] === 'e' && this.linha_comandos[i + 1] === '6') {
                 this.vaiEsperar = true;

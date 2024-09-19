@@ -21,6 +21,15 @@ Blockly.common.defineBlocksWithJsonArray([
    },
 
    {
+    "type": "avancar2",
+    "message0": "Avançar 1",
+    
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 115
+ },
+
+   {
     "type": "avancarN",
     "message0": "Avançar",
     
@@ -272,6 +281,12 @@ javascript.javascriptGenerator.forBlock['avancar1'] = function(block) {
   let op = "1";
   return (op);
 };
+
+javascript.javascriptGenerator.forBlock['avancar2'] = function(block) {
+  let op = "11";
+  return (op);
+};
+
 
 javascript.javascriptGenerator.forBlock['avancarN'] = function(block) {
   let op = "2";
