@@ -2020,47 +2020,57 @@ function avancarMapa08(mapLogic){
                     avancarMapalDirecao(mapLogic, mapLogic.dir); 
                     break;
                 case "3":
-                        
-                        vxl = 0;
-                        vxr = 0;
-                        vy = 0;
-                        if(mapLogic.dir == "cima"){
-                            mapLogic.dir = "esquerda";
-
-                        }else if(mapLogic.dir == "baixo"){
-                            mapLogic.dir = "direita";
-
-                        }else if(mapLogic.dir == "esquerda"){
-                            mapLogic.dir = "baixo";
-
-                        }else if(mapLogic.dir == "direita"){
-                            mapLogic.dir = "cima";
+                        if(mapLogic.linha_comandos[0]!=3){
+                            vxl = 0;
+                            vxr = 0;
+                            vy = 0;
+                            if(mapLogic.dir == "cima"){
+                                mapLogic.dir = "esquerda";
+    
+                            }else if(mapLogic.dir == "baixo"){
+                                mapLogic.dir = "direita";
+    
+                            }else if(mapLogic.dir == "esquerda"){
+                                mapLogic.dir = "baixo";
+    
+                            }else if(mapLogic.dir == "direita"){
+                                mapLogic.dir = "cima";
+                            }
+    
+                            posAtualFila++;
+                            playerPosInicialY = player.y;
+                        }else{
+                            posAtualFila++;
+                            playerPosInicialY = player.y;
                         }
-
-                        posAtualFila++;
-                        playerPosInicialY = player.y;
+                        
 
                     break;
                 case "4":
-             
-                        vxl = 0;
-                        vxr = 0;
-                        vy = 0;
-                        if(mapLogic.dir == "cima"){
-                            mapLogic.dir = "direita";
-
-                        }else if(mapLogic.dir == "baixo"){
-                            mapLogic.dir = "esquerda";
-
-                        }else if(mapLogic.dir == "esquerda"){
-                            mapLogic.dir = "cima";
-
-                        }else if(mapLogic.dir == "direita"){
-                            mapLogic.dir = "baixo";
+                        if(mapLogic.linha_comandos[0]!=4){
+                            vxl = 0;
+                            vxr = 0;
+                            vy = 0;
+                            if(mapLogic.dir == "cima"){
+                                mapLogic.dir = "direita";
+    
+                            }else if(mapLogic.dir == "baixo"){
+                                mapLogic.dir = "esquerda";
+    
+                            }else if(mapLogic.dir == "esquerda"){
+                                mapLogic.dir = "cima";
+    
+                            }else if(mapLogic.dir == "direita"){
+                                mapLogic.dir = "baixo";
+                            }
+                      
+                            posAtualFila++;
+                            playerPosInicialY = player.y; 
                         }
-                  
-                        posAtualFila++;
-                        playerPosInicialY = player.y;
+                        else{
+                            posAtualFila++;
+                            playerPosInicialY = player.y;
+                        }
                      
                     break;
         }
