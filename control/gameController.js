@@ -17,7 +17,6 @@ import { blocklyToolbox } from "../model/blockly/blocklyToolbox.js";
 import { Toolboxes } from "../model/blockly/toolboxes.js";
 import { gameDocLoader } from "../model/game/gameDocLoader.js";
 import { Espinho } from "../model/game/espinho.js";
-import { aceEditor} from "./codeController.js";
 import { User } from "../model/game/user.js";
 
 let userObj = '';   
@@ -104,8 +103,6 @@ let votou = "";
 let dificuldade = 0;
 let continuouFimFase = false;
 let mudouMapa = false;
-
-const terminal = new aceEditor();
 
 const mapaLogics = [
     mapa01Logic, mapa02Logic, mapa03Logic, mapa04Logic, mapa05Logic,
@@ -444,7 +441,6 @@ function toggleElements(){
         
         elements.canvas.classList.remove('hidden');
         elements.blocklyDiv.classList.remove('hidden');
-        // elements.terminal.classList.remove('hidden');
         elements.telaMapa.classList.add('hidden');
         elements.statsDisplay.classList.remove('hidden');
         elements.functionsDisplay.classList.remove('hidden');
@@ -456,7 +452,6 @@ function toggleElements(){
     else{
         elements.canvas.classList.add('hidden');
         elements.blocklyDiv.classList.add('hidden');
-        // elements.terminal.classList.add('hidden');
         elements.telaMapa.classList.remove('hidden');
         elements.statsDisplay.classList.add('hidden');
         elements.functionsDisplay.classList.add('hidden');
@@ -471,7 +466,6 @@ function toggleElements(){
         enableCompile();
     }
 
-    terminal.clear();
 }
 
 function disableCompile(){
@@ -493,8 +487,6 @@ function disableCompile(){
     elements.cancelCompileButton.disabled = false;
 };
 function enableCompile(){
-
-    terminal.clear();
 
     elements.blocklyLock.classList.add('hidden');
 
@@ -794,37 +786,6 @@ elements.mapaButton.addEventListener('click', function() {
 
     }
 
-    terminalHandler();
-
-
-    // attTerminal(blocosParaCod);  
-    
-
-// });
-
-function terminalHandler(){
-
-    // var repitaCount = 0;
-
-    // for (let blockIndex = 0; blockIndex < blocosParaCod.length; blockIndex++){
-
-    //     if(blocosParaCod[blockIndex] === 'repita'){
-
-    //         var i = (blockIndex+2)+(repitaFimAt[repitaCount]*2);
-    //         console.log(blocosParaCod);
-    //         blocosParaCod.splice(i, 0, "fimRepita");
-    //         repitaCount++;
-
-    //     }
-       
-    // }
-
-    
-    console.log(repitaFimAt);
-    console.log(blocosParaCod);
-    
-}
-
 elements.buttonVelocidade.addEventListener('click', function() {
     elements.radioSpeed.classList.toggle('hidden');
     elements.buttonVelocidade.classList.toggle('clicked');
@@ -845,16 +806,6 @@ elements.buttonVelocidade.addEventListener('mouseleave', (e) => {
     }
 });
 
-
-function attTerminal(blocos){
-
-    if(blocosNoWorkspace.length > 0){
-        
-        terminal.clear();
-        terminal.setValueComandos(blocos);
-        blocosParaCod = [];
-    }
-}
 
 elements.radioSpeed.addEventListener("click", function() {
     const op = document.querySelector('input[name="options"]:checked');
@@ -1183,7 +1134,6 @@ function mudarMapaDados(){
             vy = 0;
             andando = false;
             posAtualFila = 0;
-            terminal.clear();
             update = false;
             atualizarSave();
             
@@ -1201,7 +1151,6 @@ function mudarMapaDados(){
             vy = 0;
             andando = false;
             posAtualFila = 0;
-            terminal.clear();
             update = false;
             atualizarSave();
         
@@ -1219,7 +1168,6 @@ function mudarMapaDados(){
             vy = 0;
             andando = false;
             posAtualFila = 0;
-            terminal.clear();
             update = false;
             currentCheckpoint = 4;
             atualizarSave();
@@ -1239,7 +1187,6 @@ function mudarMapaDados(){
             vy = 0;
             andando = false;
             posAtualFila = 0;
-            terminal.clear();
             update = false;
             
             atualizarSave();
@@ -1275,7 +1222,6 @@ function mudarMapaDados(){
                 vy = 0;
                 andando = false;
                 posAtualFila = 0;
-                terminal.clear();
                 update = false;
                 atualizarSave();
                
@@ -1293,7 +1239,6 @@ function mudarMapaDados(){
                 vy = 0;
                 andando = false;
                 posAtualFila = 0;
-                terminal.clear();
                 update = false;
                 currentCheckpoint = 8;
                 atualizarSave();
@@ -1311,7 +1256,6 @@ function mudarMapaDados(){
                 vy = 0;
                 andando = false;
                 posAtualFila = 0;
-                terminal.clear();
                 update = false;
                 
                 atualizarSave();
@@ -1329,7 +1273,6 @@ function mudarMapaDados(){
                 vy = 0;
                 andando = false;
                 posAtualFila = 0;
-                terminal.clear();
                 update = false;
                 atualizarSave();
 
@@ -1346,7 +1289,6 @@ function mudarMapaDados(){
                 vy = 0;
                 andando = false;
                 posAtualFila = 0;
-                terminal.clear();
                 update = false;
                 atualizarSave();
 
@@ -1363,7 +1305,6 @@ function mudarMapaDados(){
                 vy = 0;
                 andando = false;
                 posAtualFila = 0;
-                terminal.clear();
                 update = false;
                 currentCheckpoint = 12;
                 atualizarSave();
@@ -1381,7 +1322,6 @@ function mudarMapaDados(){
                 vy = 0;
                 andando = false;
                 posAtualFila = 0;
-                terminal.clear();
                 update = false;
                 
                 atualizarSave();
@@ -1400,7 +1340,6 @@ function mudarMapaDados(){
                 vy = 0;
                 andando = false;
                 posAtualFila = 0;
-                terminal.clear();
                 update = false;
                 
                 atualizarSave();

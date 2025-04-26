@@ -14,7 +14,6 @@ elements.mostrarNotas.addEventListener('click', function() {
     
     
 });
-// window.onbeforeunload = function() { return "Your work will be lost."; };
 window.onclick = function(event) {
     if (event.target == elements.modal) {
         elements.modal.classList.add('hidden');
@@ -39,16 +38,7 @@ elements.buttonContinue.addEventListener('click', function() {
         location.replace('/view/game.html');
             
     }
-
-
-    
-     
-});
-
-window.addEventListener('load', function(){
-
-   
-    //usar essa classe pra carregar um save temporario
+  
 });
 
 

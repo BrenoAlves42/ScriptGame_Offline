@@ -436,17 +436,6 @@ input[type="radio"].velRadio:checked {
 
   background-color: rgba(80, 80, 80, 0.5);
 }
-
-#terminal{
-  position: absolute;
-  left: 69%;
-  top: 10%;
-
-  height: 90%;
-  width: 30%;
-  
-}
-
 .gameScreen{
   position: absolute;
   left: 19%;
