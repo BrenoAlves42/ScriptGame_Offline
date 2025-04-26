@@ -18,7 +18,6 @@ export class gameDocLoader{
         this.canvas = document.getElementById('canvas1');
         this.blocklyDiv = document.getElementById('blocklyDiv');
         this.blocklyLock = document.getElementById('blocklyDivLock'); 
-        this.terminal = document.getElementById('terminal');
         this.ctx = this.canvas.getContext('2d');
         this.telaMapa = document.getElementById('mapa');
         this.execButton = document.getElementById('buttonPlay');
